@@ -1,0 +1,135 @@
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   React Frontend│    │  Node.js/Express │    │   MongoDB       │
+│                 │    │    Backend API   │    │   Database      │
+│ - PWA Enabled   │◄──►│ - RESTful API    │◄──►│ - Collections   │
+│ - Service Worker│    │ - Socket.io      │    │ - Indexed       │
+│ - Offline Cache │    │ - Rate Limiting  │    │ - Encrypted     │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+         │                        │                        │
+         │                        │                        │
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Mobile Apps   │    │   Cloud Storage  │    │   Redis Cache   │
+│ (React Native)  │    │  (Encrypted)     │    │  (Session Mgmt) │
+│ - Bluetooth     │    │ - Evidence Files │    │ - Rate Limits   │
+│ - WiFi Direct   │    │ - Media Backup   │    │ - Real-time Data│
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+
+DATA FLOW
+
+1. User Action → 2. React Component → 3. API Service → 4. Express Route
+     ↓
+5. Controller → 6. Database Operation → 7. Response → 8. State Update
+     ↓
+9. UI Update → 10. (Optional) Real-time Broadcast
+
+
+Complete Project Structure
+
+voices-under-fire/
+├── client/                          # React Frontend
+│   ├── public/
+│   │   ├── index.html
+│   │   ├── manifest.json
+│   │   └── service-worker.js
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── common/
+│   │   │   │   ├── Header.jsx
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   ├── LoadingSpinner.jsx
+│   │   │   │   └── ErrorBoundary.jsx
+│   │   │   ├── alerts/
+│   │   │   │   ├── AlertCard.jsx
+│   │   │   │   ├── AlertForm.jsx
+│   │   │   │   ├── AlertFilters.jsx
+│   │   │   │   └── AlertMap.jsx
+│   │   │   ├── sos/
+│   │   │   │   ├── SOSButton.jsx
+│   │   │   │   ├── SOSModal.jsx
+│   │   │   │   └── SOSAlert.jsx
+│   │   │   ├── map/
+│   │   │   │   ├── CrisisMap.jsx
+│   │   │   │   ├── ZoneMarker.jsx
+│   │   │   │   └── LocationTracker.jsx
+│   │   │   └── verification/
+│   │   │       ├── VerifyModal.jsx
+│   │   │       └── TrustScore.jsx
+│   │   ├── contexts/
+│   │   │   ├── AuthContext.jsx
+│   │   │   ├── AlertContext.jsx
+│   │   │   └── MapContext.jsx
+│   │   ├── hooks/
+│   │   │   ├── useGeolocation.js
+│   │   │   ├── useAlerts.js
+│   │   │   ├── useSOS.js
+│   │   │   └── useVerification.js
+│   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   ├── Alerts.jsx
+│   │   │   ├── Map.jsx
+│   │   │   ├── SOS.jsx
+│   │   │   ├── MissingPersons.jsx
+│   │   │   └── Settings.jsx
+│   │   ├── services/
+│   │   │   ├── api.js
+│   │   │   ├── socket.js
+│   │   │   ├── storage.js
+│   │   │   └── encryption.js
+│   │   ├── utils/
+│   │   │   ├── constants.js
+│   │   │   ├── helpers.js
+│   │   │   └── validators.js
+│   │   ├── styles/
+│   │   │   ├── index.css
+│   │   │   └── components.css
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
+├── server/                          # Node.js Backend
+│   ├── controllers/
+│   │   ├── alertController.js
+│   │   ├── sosController.js
+│   │   ├── verificationController.js
+│   │   └── userController.js
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Alert.js
+│   │   ├── SOSRequest.js
+│   │   ├── Verification.js
+│   │   ├── MissingPerson.js
+│   │   └── SystemConfig.js
+│   ├── routes/
+│   │   ├── alerts.js
+│   │   ├── sos.js
+│   │   ├── verification.js
+│   │   ├── missing-persons.js
+│   │   └── system.js
+│   ├── middleware/
+│   │   ├── auth.js
+│   │   ├── validation.js
+│   │   ├── rateLimit.js
+│   │   └── errorHandler.js
+│   ├── config/
+│   │   ├── database.js
+│   │   ├── socket.js
+│   │   └── encryption.js
+│   ├── utils/
+│   │   ├── geolocation.js
+│   │   ├── encryption.js
+│   │   └── helpers.js
+│   ├── app.js
+│   ├── server.js
+│   └── package.json
+├── docs/                           # Documentation
+│   ├── API.md
+│   ├── DEPLOYMENT.md
+│   └── SECURITY.md
+├── scripts/                        # Utility scripts
+│   ├── deploy.sh
+│   ├── backup.js
+│   └── cleanup.js
+├── .env.example
+├── .gitignore
+└── README.md
