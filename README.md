@@ -1,6 +1,12 @@
 Voices Under Fire 🌐🔥
 A Secure Anonymous Emergency Alert and Crisis Response Platform
 
+URL of the deployed frontend application - https://voicesunderfire.vercel.app/
+URL of the deployed backend API - https://crisis-response-app.onrender.com
+
+![Frontend](<Screenshot 2025-11-22 040645.png>)
+
+
 📖 Table of Contents
 Overview
 
