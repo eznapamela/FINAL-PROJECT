@@ -9,7 +9,7 @@ class SocketService {
   connect() {
     if (this.socket) return this.socket
 
-    const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000'
+    const SOCKET_URL = import.meta.env.VITE_SOCKET_URL 
     const token = localStorage.getItem('anonymousToken')
 
     this.socket = io(SOCKET_URL, {
