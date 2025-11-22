@@ -9,6 +9,7 @@ connectDB();
 
 // Start server
 const server = app.listen(PORT, () => {
+  console.log('mimi ni mnoma')
   console.log(` Server running on port ${PORT}`);
   console.log(` Environment: ${process.env.NODE_ENV || 'development'}`);
 });
